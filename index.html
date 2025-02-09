@@ -14,7 +14,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            flex-direction: column; /* Ajouté pour aligner l'image et le chat correctement */
+            flex-direction: column;
         }
         .chat-container {
             width: 100%;
@@ -25,13 +25,14 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            margin-top: 20px; /* Pour espacer l'image du chat */
+            margin-top: 20px;
+            height: 30vh; /* Réduit la hauteur du container */
         }
         .chat-box {
             flex-grow: 1;
             padding: 20px;
             overflow-y: auto;
-            max-height: 500px;
+            max-height: calc(60vh - 70px); /* Ajuste la hauteur des messages */
             border-bottom: 1px solid #333;
         }
         .input-container {
@@ -39,6 +40,7 @@
             padding: 15px;
             background-color: #252525;
             border-top: 1px solid #333;
+            align-items: center;
         }
         .message-input {
             flex-grow: 1;
@@ -77,9 +79,9 @@
             animation: fadeIn 0.5s forwards;
         }
         .user-message {
-    background-color: rgba(106, 74, 243, 0.4); /* Couleur #6a4af3 avec opacité de 20% */
-    color: #fff;
-    align-self: flex-end;
+            background-color: rgba(106, 74, 243, 0.4);
+            color: #fff;
+            align-self: flex-end;
         }
         .bot-message {
             background-color: #444;
@@ -90,7 +92,6 @@
             color: #888;
         }
 
-        /* Ajout de l'animation fadeIn */
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -98,24 +99,21 @@
             }
         }
 
-        /* Style de l'image */
         .header-image {
             width: 30%;
             height: auto;
-            max-width: 30%; /* Pour que l'image ne dépasse pas la largeur de l'écran */
+            max-width: 30%;
             display: block;
-            margin-bottom: 0px; /* Espacement sous l'image */
+            margin-bottom: 0px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Ajout de l'image en haut de la page -->
     <img src="https://i.ibb.co/DPZGhSHs/Sans-titre-1.png" alt="Image décorative" class="header-image">
 
     <div class="chat-container">
         <div class="chat-box" id="chat-box">
-            <!-- Messages will appear here -->
         </div>
 
         <div class="input-container">
@@ -125,7 +123,7 @@
     </div>
 
     <script>
-        const apiKey = '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'; // Remplace par ta propre clé API OpenAI
+        const apiKey = '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';
 
         async function sendMessage() {
             const messageInput = document.getElementById('message-input');
