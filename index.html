@@ -125,7 +125,7 @@
 
                 const botMessageElement = document.createElement('div');
                 botMessageElement.classList.add('message', 'bot-message');
-                botMessageElement.textContent = "Bot: Chargement...";
+                botMessageElement.textContent = "flecheGPT: Chargement...";
                 chatBox.appendChild(botMessageElement);
 
                 chatBox.scrollTop = chatBox.scrollHeight;
@@ -133,7 +133,7 @@
                 messageInput.value = '';
 
                 const botResponse = await getBotResponse(userMessage);
-                botMessageElement.textContent = "Bot: " + botResponse;
+                botMessageElement.textContent = "flecheGPT:" + botResponse;
 
                 chatBox.scrollTop = chatBox.scrollHeight;
             }
