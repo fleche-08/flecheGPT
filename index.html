@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat avec le Bot</title>
     <style>
+        /* Style de la scrollbar */
+        .chat-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-box::-webkit-scrollbar-thumb {
+            background: #6a4af3;
+            border-radius: 6px;
+        }
+
+        .chat-box::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+        }
+
+        .chat-box::-webkit-scrollbar-thumb:hover {
+            background: #4a2fbf;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #121212;
@@ -133,7 +152,7 @@
             if (userMessage) {
                 const userMessageElement = document.createElement('div');
                 userMessageElement.classList.add('message', 'user-message');
-                userMessageElement.textContent = "Vous: " + userMessage;
+                userMessageElement.textContent = "Moi : " + userMessage;
                 chatBox.appendChild(userMessageElement);
 
                 const botMessageElement = document.createElement('div');
@@ -146,7 +165,7 @@
                 messageInput.value = '';
 
                 const botResponse = await getBotResponse(userMessage);
-                botMessageElement.textContent = "FlecheGPT : " + botResponse;
+                botMessageElement.textContent = "FlecheGPT :" + botResponse;
 
                 chatBox.scrollTop = chatBox.scrollHeight;
             }
